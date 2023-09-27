@@ -35,11 +35,13 @@ module.exports = {
             .cookie("usertoken", userToken, {
                 httpOnly:true
             })
-            .json({msg: "success! You're logged in"});
+            .json({msg: `success! You're logged in as ${user.username}`});
     },
 
     logout: (req, res)=> {
+        console.log('You have been logged out!');
         res.clearCookie('usertoken');
         res.sendStatus(200);
+
     }
 }
